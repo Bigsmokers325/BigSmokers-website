@@ -82,10 +82,12 @@ footer{border-top:1px solid var(--line);padding:36px 0;color:var(--muted)} @medi
 
 .age-yes{background:#25d366;color:#07130b}
 
-.age-no{background:#333;color:white}</style>
+body.age-locked{
+overflow:hidden;
+}
+  .age-no{background:#333;color:white}</style>
 </head>
-<body>
-<div id="ageGate" class="age-gate">
+<body class="age-locked"><div id="ageGate" class="age-gate">
 
   <div class="age-box">
 
@@ -238,7 +240,7 @@ function enterSite() {
   localStorage.setItem("ageVerified", "yes");
 
   document.getElementById("ageGate").style.display = "none";
-
+  document.body.classList.remove("age-locked");
 }
 
 function underAge() {
@@ -250,7 +252,7 @@ function underAge() {
 if (localStorage.getItem("ageVerified") === "yes") {
 
   document.getElementById("ageGate").style.display = "none";
-
+  document.body.classList.remove("age-locked");
 }
 
 </script></body></html>
