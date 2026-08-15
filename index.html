@@ -20,9 +20,86 @@ section{padding:52px 0} h2{font-size:32px;margin:0 0 12px} .sub{color:var(--mute
 .deals{display:grid;grid-template-columns:repeat(4,1fr);gap:12px} .deal{padding:22px;background:var(--panel);border:1px solid var(--line);border-radius:16px;text-align:center}
 .deal strong{font-size:25px;display:block} .deal span{color:var(--muted)} .notice{background:#111916;border:1px solid #244c35;padding:20px;border-radius:16px;color:#dce9e1}
 footer{border-top:1px solid var(--line);padding:36px 0;color:var(--muted)} @media(max-width:700px){.deals{grid-template-columns:1fr 1fr}}
-</style>
+.age-gate{
+
+  position:fixed;
+
+  inset:0;
+
+  background:#0b0d0e;
+
+  z-index:99999;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:20px;
+
+}
+
+.age-box{
+
+  background:#15191b;
+
+  color:white;
+
+  text-align:center;
+
+  padding:40px 30px;
+
+  border-radius:18px;
+
+  max-width:500px;
+
+  width:100%;
+
+  border:1px solid #293033;
+
+}
+
+.age-box h1{font-size:36px;margin:0 0 15px}
+
+.age-box p{color:#aeb8b8;margin-bottom:25px}
+
+.age-box button{
+
+  padding:14px 25px;
+
+  margin:6px;
+
+  border:0;
+
+  border-radius:10px;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+}
+
+.age-yes{background:#25d366;color:#07130b}
+
+.age-no{background:#333;color:white}</style>
 </head>
 <body>
+<div id="ageGate" class="age-gate">
+
+  <div class="age-box">
+
+    <h1>21+ ONLY</h1>
+
+    <p>You must be 21 years of age or older to enter Big Smokers.</p>
+
+    <button class="age-yes" onclick="enterSite()">YES, I'M 21+</button>
+
+    <button class="age-no" onclick="underAge()">NO, I'M UNDER 21</button>
+
+  </div>
+
+</div>
 <header><div class="wrap"><nav><div class="brand">BIG SMOKERS</div><a class="btn" href="https://wa.me/13134426433?text=Hi%20Big%20Smokers%2C%20what%2015%20mL%20CBD%20e-liquid%20flavors%20are%20available%20today%3F">WhatsApp</a></nav></div></header>
 
 <main>
@@ -154,4 +231,26 @@ footer{border-top:1px solid var(--line);padding:36px 0;color:var(--muted)} @medi
 </main>
 
 <footer><div class="wrap">© 2026 Big Smokers. 21+ only. This website does not provide medical advice.</div></footer>
-</body></html>
+<script>
+
+function enterSite() {
+
+  localStorage.setItem("ageVerified", "yes");
+
+  document.getElementById("ageGate").style.display = "none";
+
+}
+
+function underAge() {
+
+  alert("You must be 21 or older to enter this website.");
+
+}
+
+if (localStorage.getItem("ageVerified") === "yes") {
+
+  document.getElementById("ageGate").style.display = "none";
+
+}
+
+</script></body></html>
