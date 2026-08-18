@@ -94,7 +94,7 @@ function buildTabs() {
     state.cat = btn.dataset.cat;
     state.visible = PAGE_SIZE;
     [...els.tabs.children].forEach((b) => b.classList.toggle("active", b === btn));
-    render();
+    render(true);
   });
 }
 
@@ -116,12 +116,12 @@ function filteredSorted() {
   return list;
 }
 
-function cardHTML(p) {
+function cardHTML(p, animate) {
   const style = catStyle(p.category);
   const dots = colorWords(p.colors).slice(0, 5)
     .map((c) => `<span class="dot" style="background:${colorHex(c)}"></span>`).join("");
   return `
-  <div class="card" data-id="${p.id}">
+  <div class="card${animate ? " reveal" : ""}" data-id="${p.id}">
     <div class="swatch" style="background:${style.grad}">
       <span class="cat-pill">${p.category}</span>
       <span class="mono">${style.mono}</span>
@@ -139,16 +139,17 @@ function cardHTML(p) {
   </div>`;
 }
 
-function render() {
+function render(animate = false) {
   const list = filteredSorted();
   const shown = list.slice(0, state.visible);
-  els.grid.innerHTML = shown.map(cardHTML).join("");
+  els.grid.innerHTML = shown.map((p) => cardHTML(p, animate)).join("");
   els.resultCount.textContent = `${list.length} style${list.length === 1 ? "" : "s"}`;
   els.emptyState.hidden = list.length !== 0;
   els.grid.hidden = list.length === 0;
   els.loadMoreBtn.style.display = state.visible < list.length ? "inline-block" : "none";
   const filtersActive = state.cat !== "all" || state.query.trim() !== "";
   els.clearFilters.hidden = !filtersActive;
+  if (animate && window.observeReveal) window.observeReveal(els.grid);
 }
 
 function openModal(product) {
@@ -187,7 +188,7 @@ function wireEvents() {
   });
   els.loadMoreBtn.addEventListener("click", () => {
     state.visible += PAGE_SIZE;
-    render();
+    render(true);
   });
   els.grid.addEventListener("click", (e) => {
     const card = e.target.closest(".card");
@@ -214,7 +215,7 @@ function resetFilters() {
   state.visible = PAGE_SIZE;
   els.search.value = "";
   [...els.tabs.children].forEach((b) => b.classList.toggle("active", b.dataset.cat === "all"));
-  render();
+  render(true);
 }
 
 function wireContactLinks() {
@@ -242,7 +243,7 @@ async function init() {
   }
   els.statCount.textContent = PRODUCTS.length;
   buildTabs();
-  render();
+  render(true);
 }
 
 init();

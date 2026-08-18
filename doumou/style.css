@@ -18,6 +18,21 @@ html{scroll-behavior:smooth}
 @media(prefers-reduced-motion:reduce){
   #sandCanvas{display:none}
 }
+
+/* Scroll reveal: soft 3D tilt-and-rise the first time an element enters view */
+.reveal{
+  opacity:0;
+  transform:perspective(900px) translateY(38px) rotateX(10deg) scale(.96);
+  transition:opacity .7s cubic-bezier(.16,.84,.44,1), transform .7s cubic-bezier(.16,.84,.44,1);
+  will-change:transform,opacity;
+}
+.reveal.in-view{
+  opacity:1;
+  transform:perspective(900px) translateY(0) rotateX(0deg) scale(1);
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+}
 body{
   margin:0;
   background:
