@@ -3,217 +3,339 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Big Smokers | 15 mL CBD E-Liquid</title>
-<style>
-:root{
-  --cream:#f6f1e8;
-  --paper:#fffdf8;
-  --ink:#171717;
-  --muted:#6c675f;
-  --gold:#b48a43;
-  --gold2:#d8bd82;
-  --green:#25d366;
-  --line:#ded6c7;
-  --shadow:0 18px 55px rgba(0,0,0,.12);
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  background:
-    radial-gradient(circle at 20% 0%,rgba(216,189,130,.20),transparent 34%),
-    linear-gradient(180deg,#faf7f0 0%,#f2ebdf 100%);
-  color:var(--ink);
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-}
-body.age-locked{overflow:hidden}
-a{text-decoration:none;color:inherit}
-.wrap{width:min(1180px,calc(100% - 32px));margin:auto}
-header{
-  position:sticky;top:0;z-index:20;
-  backdrop-filter:blur(14px);
-  background:rgba(250,247,240,.88);
-  border-bottom:1px solid rgba(180,138,67,.24);
-}
-nav{height:86px;display:flex;align-items:center;justify-content:space-between;gap:18px}
-.brand{display:flex;align-items:center;gap:14px;font-weight:900;letter-spacing:.08em}
-.brand img{width:58px;height:58px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
-.whatsapp{
-  background:var(--ink);color:white;padding:13px 20px;border-radius:999px;font-weight:800
-}
-.hero{padding:74px 0 34px;text-align:center}
-.kicker{font-size:13px;letter-spacing:.18em;font-weight:900;color:var(--gold);text-transform:uppercase}
-h1{font-size:clamp(44px,8vw,86px);line-height:.95;margin:14px auto 18px;max-width:950px;letter-spacing:-.045em}
-.hero p{font-size:18px;line-height:1.6;color:var(--muted);max-width:700px;margin:0 auto 26px}
-.cta{
-  display:inline-flex;align-items:center;justify-content:center;
-  background:var(--green);color:#08170d;font-weight:900;
-  border-radius:14px;padding:16px 24px;box-shadow:0 12px 28px rgba(37,211,102,.18)
-}
-.photo-card{
-  margin:32px auto 0;background:var(--paper);border:1px solid var(--line);
-  border-radius:28px;padding:18px;box-shadow:var(--shadow);overflow:hidden
-}
-.photo-card img{display:block;width:100%;height:auto;border-radius:18px}
-.caption{margin-top:14px;color:var(--muted);font-size:14px}
-.price-section{padding:44px 0}
-.price-card{
-  display:grid;grid-template-columns:1fr 1.4fr;gap:28px;align-items:center;
-  background:var(--ink);color:white;border-radius:30px;padding:34px;box-shadow:var(--shadow)
-}
-.price-main .label{color:var(--gold2);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:13px}
-.price-main .price{font-size:64px;font-weight:950;letter-spacing:-.05em;margin:5px 0}
-.price-main p{color:#cfc9bf;line-height:1.6}
-.deals{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.deal{background:#242424;border:1px solid #3a3a3a;border-radius:18px;padding:18px}
-.deal strong{display:block;font-size:25px;color:white}
-.deal span{color:#c8c2b8;font-size:14px}
-.availability{padding:6px 0 72px}
-.availability-card{
-  text-align:center;background:var(--paper);border:1px solid var(--line);
-  border-radius:28px;padding:38px;box-shadow:var(--shadow)
-}
-.availability-card h2{font-size:38px;margin:0 0 10px}
-.availability-card p{color:var(--muted);max-width:680px;margin:0 auto 24px;line-height:1.6}
-.location{font-size:14px;margin-top:18px;color:var(--muted)}
-footer{border-top:1px solid var(--line);padding:28px 0 40px;text-align:center;color:var(--muted);font-size:13px}
-
-/* Age gate */
-.age-gate{
-  position:fixed;inset:0;z-index:999999;
-  display:flex;align-items:center;justify-content:center;
-  padding:18px;background:rgba(17,17,17,.84);
-  backdrop-filter:blur(8px);
-}
-.age-dialog{
-  width:min(560px,100%);background:white;border-radius:24px;
-  padding:28px;text-align:center;box-shadow:0 28px 90px rgba(0,0,0,.42);
-  border:1px solid #ddd;
-}
-.age-dialog img{
-  width:150px;height:150px;object-fit:cover;border-radius:50%;
-  border:3px solid var(--gold);margin-bottom:12px
-}
-.age-dialog h2{font-size:36px;margin:6px 0 8px}
-.age-dialog p{color:#555;line-height:1.5;margin:0 auto 22px}
-.age-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.age-actions button{
-  min-height:54px;border-radius:12px;font-size:17px;font-weight:850;cursor:pointer
-}
-.yes{background:var(--ink);color:white;border:1px solid var(--ink)}
-.no{background:white;color:var(--ink);border:1px solid #aaa}
-.age-note{font-size:12px!important;color:#777!important;margin-top:18px!important}
-.denied{display:none}
-.age-dialog.denied-mode .initial{display:none}
-.age-dialog.denied-mode .denied{display:block}
-.age-dialog.denied-mode .age-actions{display:none}
-
-@media(max-width:760px){
-  nav{height:74px}.brand span{font-size:13px}.brand img{width:46px;height:46px}
-  .whatsapp{padding:11px 14px;font-size:14px}
-  .hero{padding:48px 0 24px}.hero p{font-size:16px}
-  .photo-card{padding:10px;border-radius:20px}.photo-card img{border-radius:13px}
-  .price-card{grid-template-columns:1fr;padding:24px}.price-main .price{font-size:54px}
-  .deals{grid-template-columns:1fr}
-  .availability-card{padding:28px 20px}.availability-card h2{font-size:32px}
-  .age-dialog{padding:22px}.age-dialog img{width:120px;height:120px}.age-dialog h2{font-size:30px}
-}
-</style>
+<title>DUMOU | دموع — Rooted in Heritage. Designed for Today.</title>
+<meta name="description" content="DUMOU is a clothing house inspired by ancient heritage and crafted for the modern world. Explore limited collections rooted in legacy, made with premium quality.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Amiri:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%231c140c'/%3E%3Ctext x='50' y='66' font-size='58' text-anchor='middle' fill='%23d9b466' font-family='Georgia'%3ED%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="age-locked">
+<body class="loading">
 
-<div id="ageGate" class="age-gate" role="dialog" aria-modal="true" aria-labelledby="ageTitle">
-  <div id="ageDialog" class="age-dialog">
-    <div class="initial">
-      <img src="big-smokers-logo.jpeg" alt="Big Smokers logo">
-      <h2 id="ageTitle">Are You 21+?</h2>
-      <p>You must be 21 years of age or older to enter Big Smokers.</p>
-      <div class="age-actions">
-        <button class="yes" onclick="enterSite()">Yes, I'm 21+</button>
-        <button class="no" onclick="denyAccess()">No, I'm under 21</button>
-      </div>
-      <p class="age-note">By entering, you confirm that you are 21 or older.</p>
-    </div>
-    <div class="denied">
-      <img src="big-smokers-logo.jpeg" alt="Big Smokers logo">
-      <h2>Access Restricted</h2>
-      <p>This website is intended only for visitors age 21 and older.</p>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ===== Header ===== -->
+<header id="siteHeader">
+  <div class="wrap nav-wrap">
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+      <svg width="22" height="16" viewBox="0 0 22 16" fill="none"><path d="M0 1h22M0 8h22M0 15h22" stroke="currentColor" stroke-width="1.6"/></svg>
+    </button>
+
+    <nav class="nav-left" aria-label="Primary">
+      <a href="#collections">Collections</a>
+      <a href="#lookbook">Lookbook</a>
+    </nav>
+
+    <a class="brand" href="#top" aria-label="DUMOU home">
+      <span class="brand-ar" lang="ar" dir="rtl">دموع</span>
+      <span class="brand-en">DUMOU</span>
+    </a>
+
+    <nav class="nav-right" aria-label="Secondary">
+      <a href="#legacy">About</a>
+      <a href="#journal">Journal</a>
+      <a href="#newsletter">Contact</a>
+    </nav>
+
+    <div class="nav-icons">
+      <button class="icon-btn" id="accountBtn" aria-label="Account">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M4 20c1.6-4 5-6 8-6s6.4 2 8 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <button class="icon-btn" id="bagBtn" aria-label="Bag, 0 items">
+        <svg width="18" height="19" viewBox="0 0 24 25" fill="none"><path d="M6 8h12l1 14H5L6 8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span class="bag-count" id="bagCount">0</span>
+      </button>
     </div>
   </div>
-</div>
 
-<header>
-  <div class="wrap">
-    <nav>
-      <a class="brand" href="#">
-        <img src="big-smokers-logo.jpeg" alt="Big Smokers logo">
-        <span>BIG SMOKERS</span>
-      </a>
-      <a class="whatsapp" href="https://wa.me/13134426433?text=Hi%20Big%20Smokers%2C%20I%27d%20like%20to%20check%20today%27s%20CBD%20availability%20and%20flavors.">WhatsApp</a>
-    </nav>
+  <!-- Mobile nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#collections">Collections</a>
+    <a href="#lookbook">Lookbook</a>
+    <a href="#legacy">About</a>
+    <a href="#journal">Journal</a>
+    <a href="#newsletter">Contact</a>
   </div>
 </header>
 
-<main>
-  <section class="hero">
-    <div class="wrap">
-      <div class="kicker">21+ Only • Abilene, Texas</div>
-      <h1>15 mL CBD E-Liquid</h1>
-      <p>Our in-store selection changes frequently. View the collection below, then message us to check which flavors are available today.</p>
-      <a class="cta" href="https://wa.me/13134426433?text=Hi%20Big%20Smokers%2C%20I%27d%20like%20to%20check%20today%27s%20CBD%20availability%20and%20flavors.">Check Availability on WhatsApp</a>
+<main id="top">
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-vignette"></div>
+      <div class="hiero-col hiero-col--left" aria-hidden="true"></div>
+      <div class="hiero-col hiero-col--right" aria-hidden="true"></div>
+      <div class="palm palm--left" aria-hidden="true"></div>
+      <div class="palm palm--right" aria-hidden="true"></div>
+    </div>
 
-      <div class="photo-card">
-        <img src="cbd-products.png" alt="Big Smokers CBD e-liquid selection">
-        <div class="caption">Product selection shown for reference. Current flavors and stock may vary.</div>
+    <button class="hero-arrow hero-arrow--left" id="heroPrev" aria-label="Previous slide">
+      <svg width="14" height="24" viewBox="0 0 14 24" fill="none"><path d="M12 2 2 12l10 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="hero-arrow hero-arrow--right" id="heroNext" aria-label="Next slide">
+      <svg width="14" height="24" viewBox="0 0 14 24" fill="none"><path d="M2 2l10 10L2 22" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+    <div class="wrap hero-inner">
+      <div class="hero-mark" lang="ar" dir="rtl">دموع</div>
+
+      <div class="hero-slides" id="heroSlides">
+        <article class="hero-slide is-active">
+          <h1 class="hero-title">DUMOU</h1>
+          <div class="hero-rule"><span></span><i class="sun-dot"></i><span></span></div>
+          <p class="hero-tagline">Rooted in heritage.<br>Designed for today.</p>
+        </article>
+        <article class="hero-slide">
+          <h1 class="hero-title">LEGACY</h1>
+          <div class="hero-rule"><span></span><i class="sun-dot"></i><span></span></div>
+          <p class="hero-tagline">Every thread carries a story<br>older than fashion itself.</p>
+        </article>
+        <article class="hero-slide">
+          <h1 class="hero-title">CRAFT</h1>
+          <div class="hero-rule"><span></span><i class="sun-dot"></i><span></span></div>
+          <p class="hero-tagline">Exceptional materials.<br>Crafted to perfection.</p>
+        </article>
+        <article class="hero-slide">
+          <h1 class="hero-title">LIMITED</h1>
+          <div class="hero-rule"><span></span><i class="sun-dot"></i><span></span></div>
+          <p class="hero-tagline">Exclusively designed.<br>Never mass produced.</p>
+        </article>
+        <article class="hero-slide">
+          <h1 class="hero-title">WORLDWIDE</h1>
+          <div class="hero-rule"><span></span><i class="sun-dot"></i><span></span></div>
+          <p class="hero-tagline">Delivering elegance,<br>wherever you are.</p>
+        </article>
+      </div>
+
+      <a class="btn btn-outline-gold" href="#legacy">Discover the Story</a>
+
+      <div class="hero-dots" id="heroDots" role="tablist" aria-label="Hero slides"></div>
+    </div>
+  </section>
+
+  <!-- ===== Feature strip ===== -->
+  <section class="features">
+    <div class="wrap features-grid">
+      <div class="feature">
+        <span class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M24 44V22" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M24 24C24 12 12 10 6 12c1 8 8 13 18 12Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M24 20C24 8 36 6 42 8c-1 8-8 13-18 12Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>Timeless Heritage</h3>
+        <p>Inspired by ancient culture. Made for the modern world.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M24 4l3.6 12.4L40 20l-12.4 3.6L24 36l-3.6-12.4L8 20l12.4-3.6L24 4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>Premium Quality</h3>
+        <p>Exceptional materials. Crafted to perfection.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M24 8c6 4 8 9 8 9s-6 2-8 2-8-2-8-2 2-5 8-9Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M24 19v21M24 19c-8 2-14 8-16 16 8 0 14-4 16-10M24 19c8 2 14 8 16 16-8 0-14-4-16-10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>Limited Drops</h3>
+        <p>Exclusively designed. Never mass produced.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M24 42s14-9 14-21A14 14 0 0 0 24 8 14 14 0 0 0 10 21c0 12 14 21 14 21Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="24" cy="20" r="4.5" stroke="currentColor" stroke-width="1.6"/></svg>
+        </span>
+        <h3>Worldwide Shipping</h3>
+        <p>Delivering elegance wherever you are.</p>
       </div>
     </div>
   </section>
 
-  <section class="price-section">
-    <div class="wrap">
-      <div class="price-card">
-        <div class="price-main">
-          <div class="label">15 mL Bottle</div>
-          <div class="price">$89.99</div>
-          <p>Ask us on WhatsApp for current flavor availability before ordering.</p>
-        </div>
-        <div>
-          <div class="label" style="color:#d8bd82;font-weight:900;margin-bottom:12px">BUY MORE &amp; SAVE</div>
-          <div class="deals">
-            <div class="deal"><strong>$89.99</strong><span>1 bottle</span></div>
-            <div class="deal"><strong>$169.99</strong><span>2 bottles</span></div>
-            <div class="deal"><strong>$239.99</strong><span>3 bottles</span></div>
-            <div class="deal"><strong>$349.99</strong><span>5 bottles</span></div>
+  <!-- ===== Legacy / About teaser ===== -->
+  <section class="legacy" id="legacy">
+    <div class="wrap legacy-grid">
+      <div class="legacy-copy" data-reveal>
+        <span class="eyebrow">More Than Clothing</span>
+        <h2>A Legacy<br>You Wear.</h2>
+        <p>Every detail we create carries a story of strength, beauty, and heritage. This is not just fashion. This is DUMOU.</p>
+        <a class="link-arrow" href="#journal">About Dumou <svg width="20" height="10" viewBox="0 0 20 10" fill="none"><path d="M1 5h17M13 1l5 4-5 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <div class="legacy-arch" data-reveal>
+        <div class="arch-frame">
+          <div class="arch-scene">
+            <div class="sky"></div>
+            <div class="sun"></div>
+            <div class="obelisk"></div>
+            <div class="palms-row" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <div class="ground"></div>
           </div>
         </div>
+        <div class="arch-pillar arch-pillar--left" aria-hidden="true"></div>
+        <div class="arch-pillar arch-pillar--right" aria-hidden="true"></div>
       </div>
     </div>
   </section>
 
-  <section class="availability">
+  <!-- ===== Heritage stats ===== -->
+  <section class="stats">
+    <div class="wrap stats-grid">
+      <div class="stat" data-reveal>
+        <span class="stat-num" data-count="1">01</span>
+        <span class="stat-label">Founding Collection</span>
+      </div>
+      <div class="stat" data-reveal>
+        <span class="stat-num" data-count="48">48</span>
+        <span class="stat-label">Countries Shipped To</span>
+      </div>
+      <div class="stat" data-reveal>
+        <span class="stat-num" data-count="100">100%</span>
+        <span class="stat-label">Handcrafted Details</span>
+      </div>
+      <div class="stat" data-reveal>
+        <span class="stat-num" data-count="0">∞</span>
+        <span class="stat-label">Stories Carried Forward</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Collections ===== -->
+  <section class="collections" id="collections">
     <div class="wrap">
-      <div class="availability-card">
-        <h2>Check Today's Availability</h2>
-        <p>Flavors can change throughout the day because of in-store sales. Message Big Smokers on WhatsApp and we’ll confirm what is currently available.</p>
-        <a class="cta" href="https://wa.me/13134426433?text=Hi%20Big%20Smokers%2C%20I%27d%20like%20to%20check%20today%27s%20CBD%20availability%20and%20flavors.">Message Big Smokers</a>
-        <div class="location">1766 TX-351, Abilene, TX 79601</div>
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Shop By</span>
+        <h2>Our Collections</h2>
+      </div>
+
+      <div class="collection-grid">
+        <a class="collection-card" href="#" data-reveal>
+          <div class="collection-media collection-media--1"></div>
+          <div class="collection-info">
+            <h3>The Nomad Line</h3>
+            <span>Everyday essentials</span>
+          </div>
+        </a>
+        <a class="collection-card" href="#" data-reveal>
+          <div class="collection-media collection-media--2"></div>
+          <div class="collection-info">
+            <h3>Golden Dynasty</h3>
+            <span>Statement outerwear</span>
+          </div>
+        </a>
+        <a class="collection-card" href="#" data-reveal>
+          <div class="collection-media collection-media--3"></div>
+          <div class="collection-info">
+            <h3>Desert Bloom</h3>
+            <span>Women's capsule</span>
+          </div>
+        </a>
+        <a class="collection-card" href="#" data-reveal>
+          <div class="collection-media collection-media--4"></div>
+          <div class="collection-info">
+            <h3>Relic Drop No.1</h3>
+            <span>Limited edition</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Lookbook ===== -->
+  <section class="lookbook" id="lookbook">
+    <div class="wrap">
+      <div class="section-head section-head--light" data-reveal>
+        <span class="eyebrow">Editorial</span>
+        <h2>The Lookbook</h2>
+        <p>A visual journey through DUMOU's founding season — where ancient motifs meet modern silhouettes.</p>
+      </div>
+      <div class="lookbook-grid">
+        <div class="look look--1" data-reveal></div>
+        <div class="look look--2" data-reveal></div>
+        <div class="look look--3" data-reveal></div>
+        <div class="look look--4" data-reveal></div>
+        <div class="look look--5" data-reveal></div>
+      </div>
+      <div class="center-cta" data-reveal>
+        <a class="btn btn-outline-gold" href="#newsletter">View Full Lookbook</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Quote / Journal teaser ===== -->
+  <section class="quote-section" id="journal">
+    <div class="wrap quote-wrap" data-reveal>
+      <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+      <p class="quote-text">Clothing that remembers where it came from — and honors where you're going.</p>
+      <span class="quote-cite">The DUMOU Journal</span>
+    </div>
+  </section>
+
+  <!-- ===== Newsletter ===== -->
+  <section class="newsletter" id="newsletter">
+    <div class="wrap">
+      <div class="newsletter-card" data-reveal>
+        <h2>Join the Inner Circle</h2>
+        <p>Be first to know about limited drops, restocks, and the stories behind every collection.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
+          <button type="submit" class="btn btn-solid-gold">Subscribe</button>
+        </form>
+        <p class="newsletter-note" id="newsletterNote">No spam. Unsubscribe anytime.</p>
       </div>
     </div>
   </section>
 </main>
 
+<!-- ===== Footer ===== -->
 <footer>
-  <div class="wrap">© 2026 Big Smokers • 21+ only • Availability subject to change.</div>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand brand--footer" href="#top">
+        <span class="brand-ar" lang="ar" dir="rtl">دموع</span>
+        <span class="brand-en">DUMOU</span>
+      </a>
+      <p>A clothing house rooted in ancient heritage, designed for today. Every piece carries a story worth wearing.</p>
+      <div class="socials" aria-label="Social media">
+        <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="Pinterest"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M9 18c1-3 1.6-5.8 2-8m0 0a3.2 3.2 0 1 1 5.6 2.1c-.6 1.6-1.9 2.5-3.3 2.1-1.1-.3-1.6-1.3-1.2-2.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></a>
+        <a href="#" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14 4v10.5a3.5 3.5 0 1 1-3-3.46" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M14 4c.4 2.2 2 3.8 4.2 4.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <a href="#collections">Collections</a>
+      <a href="#lookbook">Lookbook</a>
+      <a href="#collections">New Arrivals</a>
+      <a href="#collections">Limited Drops</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>About</h4>
+      <a href="#legacy">Our Story</a>
+      <a href="#journal">Journal</a>
+      <a href="#">Sustainability</a>
+      <a href="#">Craftsmanship</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Help</h4>
+      <a href="#">Shipping &amp; Returns</a>
+      <a href="#">Size Guide</a>
+      <a href="#">FAQ</a>
+      <a href="#newsletter">Contact Us</a>
+    </div>
+  </div>
+
+  <div class="footer-divider" aria-hidden="true"></div>
+
+  <div class="wrap footer-bottom">
+    <span>© <span id="year"></span> DUMOU. All rights reserved.</span>
+    <span class="footer-tag">Rooted in heritage. Designed for today.</span>
+  </div>
 </footer>
 
-<script>
-function enterSite(){
-  document.getElementById("ageGate").style.display="none";
-  document.body.classList.remove("age-locked");
-}
-function denyAccess(){
-  document.getElementById("ageDialog").classList.add("denied-mode");
-}
-</script>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/js/main.js"></script>
 </body>
 </html>
