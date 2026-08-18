@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>دموع | Modest Fashion Boutique</title>
+<meta name="description" content="دموع — modest fashion boutique. Abayas, dresses, hijabs, jilbabs and separates.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Reem+Kufi:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <span class="brand-ar">دموع</span>
+      <span class="brand-en">DOUMOU &nbsp;·&nbsp; Modest Fashion</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-actions" id="navActions">
+      <div class="search-box">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="searchInput" type="search" placeholder="Search abayas, dresses, hijabs…" aria-label="Search products">
+      </div>
+      <a class="cta-small" id="contactCta" href="#" target="_blank" rel="noopener">Message Us</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="kicker">New Collection · Modest Fashion</div>
+      <h1>Elegance, <em>covered</em> in every detail.</h1>
+      <p>Abayas, kaftans, dresses, hijabs and jilbabs — thoughtfully priced and ready to order.
+      Browse the full collection below, then message us to place an order.</p>
+      <div class="hero-stats">
+        <div><strong id="statCount">0</strong><span>Styles</span></div>
+        <div><strong id="statCats">7</strong><span>Categories</span></div>
+        <div><strong>21</strong><span>Countries Sourced</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="catalog">
+    <div class="wrap">
+      <div class="filter-bar">
+        <div class="tabs" id="categoryTabs">
+          <button class="tab active" data-cat="all">All</button>
+        </div>
+        <div class="sort-box">
+          <label for="sortSelect">Sort</label>
+          <select id="sortSelect">
+            <option value="featured">Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name-asc">Name: A–Z</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="result-line">
+        <span id="resultCount"></span>
+        <button class="clear-filters" id="clearFilters" hidden>Clear filters</button>
+      </div>
+
+      <div class="grid" id="productGrid" aria-live="polite"></div>
+
+      <div class="empty-state" id="emptyState" hidden>
+        <p>No styles match your search.</p>
+        <button class="cta-outline" id="emptyClear">Clear filters</button>
+      </div>
+
+      <div class="load-more-wrap">
+        <button class="cta-outline" id="loadMoreBtn">Load more styles</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="wrap about-grid">
+      <div>
+        <div class="kicker">About دموع</div>
+        <h2>Modest style, made accessible.</h2>
+        <p>دموع curates modest fashion — abayas, jilbabs, hijabs and everyday dresses — in
+        premium fabrics and a wide range of colors and sizes. Every style listed is available
+        to order; message us with the SKU and we'll confirm color, size and delivery time.</p>
+      </div>
+      <div class="how-to">
+        <div class="step"><span>1</span><div><strong>Browse</strong><p>Filter by category or search a style, color or SKU.</p></div></div>
+        <div class="step"><span>2</span><div><strong>Message us</strong><p>Tap "Order this style" with your size and color choice.</p></div></div>
+        <div class="step"><span>3</span><div><strong>We confirm</strong><p>We confirm availability, price and delivery, then ship.</p></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <span class="brand-ar small">دموع</span>
+      <p>Modest fashion boutique. Prices shown are per single piece and include our standard
+      markup; shipping is calculated separately at checkout.</p>
+    </div>
+    <div>
+      <strong>Contact</strong>
+      <a id="footerWhatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+      <a id="footerInstagram" href="#" target="_blank" rel="noopener">Instagram</a>
+      <a id="footerEmail" href="#">Email</a>
+    </div>
+    <div>
+      <strong>Shop</strong>
+      <a href="#categoryTabs">All Categories</a>
+      <a href="#top">Back to Top</a>
+    </div>
+  </div>
+  <div class="wrap legal">© <span id="year"></span> دموع (Doumou). Prices and availability subject to change. • <a href="../" style="text-decoration:underline">Big Smokers CBD</a></div>
+</footer>
+
+<div class="product-modal" id="productModal" role="dialog" aria-modal="true" hidden>
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="modal-panel">
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <div class="modal-swatch" id="modalSwatch"></div>
+    <div class="modal-body">
+      <div class="modal-cat" id="modalCat"></div>
+      <h3 id="modalName"></h3>
+      <div class="modal-price" id="modalPrice"></div>
+      <dl class="modal-facts">
+        <div><dt>SKU</dt><dd id="modalSku"></dd></div>
+        <div><dt>Material</dt><dd id="modalMaterial"></dd></div>
+        <div><dt>Sizes</dt><dd id="modalSizes"></dd></div>
+        <div><dt>Colors</dt><dd id="modalColors"></dd></div>
+      </dl>
+      <a class="cta" id="modalOrder" href="#" target="_blank" rel="noopener">Order this style</a>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
