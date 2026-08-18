@@ -12,6 +12,12 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+#sandCanvas{
+  position:fixed;inset:0;z-index:-1;pointer-events:none;
+}
+@media(prefers-reduced-motion:reduce){
+  #sandCanvas{display:none}
+}
 body{
   margin:0;
   background:
