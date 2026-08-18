@@ -30,6 +30,14 @@ html{scroll-behavior:smooth}
   opacity:1;
   transform:perspective(900px) translateY(0) rotateX(0deg) scale(1);
 }
+/* Once a card has made its entrance, card-tilt.js drives its transform every
+   frame while scrolling — switch to a fast transition so those continuous
+   updates track the scroll instead of chasing the slow entrance easing.
+   Three classes = higher specificity than .reveal.in-view, wins regardless
+   of source order. */
+.card.reveal.in-view{
+  transition:opacity .7s cubic-bezier(.16,.84,.44,1), transform .12s ease-out;
+}
 @media(prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none}
 }
