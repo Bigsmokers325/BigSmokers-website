@@ -1,12 +1,13 @@
 /* ============================================================
    دموع (Doumou) — storefront
    ------------------------------------------------------------
-   CONTACT INFO BELOW IS A PLACEHOLDER — update before launch.
+   Instagram and email are not set yet — those links are hidden
+   until real values are provided. Update CONTACT below to add them.
    ============================================================ */
 const CONTACT = {
-  whatsapp: "https://wa.me/10000000000", // TODO: replace with real WhatsApp number, e.g. https://wa.me/1XXXXXXXXXX
-  instagram: "https://instagram.com/doumou", // TODO: replace with real Instagram handle
-  email: "mailto:hello@doumou.example", // TODO: replace with real contact email
+  whatsapp: "https://wa.me/13134426433",
+  instagram: "", // TODO: add real Instagram handle, e.g. "https://instagram.com/handle"
+  email: "", // TODO: add real contact email, e.g. "mailto:hello@example.com"
 };
 
 const PAGE_SIZE = 24;
@@ -219,8 +220,12 @@ function resetFilters() {
 function wireContactLinks() {
   document.getElementById("contactCta").href = CONTACT.whatsapp;
   document.getElementById("footerWhatsapp").href = CONTACT.whatsapp;
-  document.getElementById("footerInstagram").href = CONTACT.instagram;
-  document.getElementById("footerEmail").href = CONTACT.email;
+  const ig = document.getElementById("footerInstagram");
+  if (CONTACT.instagram) ig.href = CONTACT.instagram;
+  else ig.hidden = true;
+  const em = document.getElementById("footerEmail");
+  if (CONTACT.email) em.href = CONTACT.email;
+  else em.hidden = true;
   document.getElementById("year").textContent = new Date().getFullYear();
 }
 

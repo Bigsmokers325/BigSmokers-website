@@ -135,6 +135,7 @@ h1 em{font-style:italic;color:var(--rose)}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px;padding-bottom:26px}
 .footer-grid strong{display:block;margin-bottom:10px;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
 .footer-grid a{display:block;margin-bottom:8px;font-size:14px;color:var(--ink)}
+.footer-grid a[hidden]{display:none}
 .brand-ar.small{font-family:"Reem Kufi",serif;font-size:24px;color:var(--rose);display:block;margin-bottom:10px}
 .footer-grid p{color:var(--muted);font-size:13px;line-height:1.6;max-width:340px}
 .legal{border-top:1px solid var(--line);padding-top:18px;font-size:12px;color:var(--muted);text-align:center}
