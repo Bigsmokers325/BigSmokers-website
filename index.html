@@ -3,217 +3,144 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Big Smokers | 15 mL CBD E-Liquid</title>
-<style>
-:root{
-  --cream:#f6f1e8;
-  --paper:#fffdf8;
-  --ink:#171717;
-  --muted:#6c675f;
-  --gold:#b48a43;
-  --gold2:#d8bd82;
-  --green:#25d366;
-  --line:#ded6c7;
-  --shadow:0 18px 55px rgba(0,0,0,.12);
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  background:
-    radial-gradient(circle at 20% 0%,rgba(216,189,130,.20),transparent 34%),
-    linear-gradient(180deg,#faf7f0 0%,#f2ebdf 100%);
-  color:var(--ink);
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-}
-body.age-locked{overflow:hidden}
-a{text-decoration:none;color:inherit}
-.wrap{width:min(1180px,calc(100% - 32px));margin:auto}
-header{
-  position:sticky;top:0;z-index:20;
-  backdrop-filter:blur(14px);
-  background:rgba(250,247,240,.88);
-  border-bottom:1px solid rgba(180,138,67,.24);
-}
-nav{height:86px;display:flex;align-items:center;justify-content:space-between;gap:18px}
-.brand{display:flex;align-items:center;gap:14px;font-weight:900;letter-spacing:.08em}
-.brand img{width:58px;height:58px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
-.whatsapp{
-  background:var(--ink);color:white;padding:13px 20px;border-radius:999px;font-weight:800
-}
-.hero{padding:74px 0 34px;text-align:center}
-.kicker{font-size:13px;letter-spacing:.18em;font-weight:900;color:var(--gold);text-transform:uppercase}
-h1{font-size:clamp(44px,8vw,86px);line-height:.95;margin:14px auto 18px;max-width:950px;letter-spacing:-.045em}
-.hero p{font-size:18px;line-height:1.6;color:var(--muted);max-width:700px;margin:0 auto 26px}
-.cta{
-  display:inline-flex;align-items:center;justify-content:center;
-  background:var(--green);color:#08170d;font-weight:900;
-  border-radius:14px;padding:16px 24px;box-shadow:0 12px 28px rgba(37,211,102,.18)
-}
-.photo-card{
-  margin:32px auto 0;background:var(--paper);border:1px solid var(--line);
-  border-radius:28px;padding:18px;box-shadow:var(--shadow);overflow:hidden
-}
-.photo-card img{display:block;width:100%;height:auto;border-radius:18px}
-.caption{margin-top:14px;color:var(--muted);font-size:14px}
-.price-section{padding:44px 0}
-.price-card{
-  display:grid;grid-template-columns:1fr 1.4fr;gap:28px;align-items:center;
-  background:var(--ink);color:white;border-radius:30px;padding:34px;box-shadow:var(--shadow)
-}
-.price-main .label{color:var(--gold2);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:13px}
-.price-main .price{font-size:64px;font-weight:950;letter-spacing:-.05em;margin:5px 0}
-.price-main p{color:#cfc9bf;line-height:1.6}
-.deals{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.deal{background:#242424;border:1px solid #3a3a3a;border-radius:18px;padding:18px}
-.deal strong{display:block;font-size:25px;color:white}
-.deal span{color:#c8c2b8;font-size:14px}
-.availability{padding:6px 0 72px}
-.availability-card{
-  text-align:center;background:var(--paper);border:1px solid var(--line);
-  border-radius:28px;padding:38px;box-shadow:var(--shadow)
-}
-.availability-card h2{font-size:38px;margin:0 0 10px}
-.availability-card p{color:var(--muted);max-width:680px;margin:0 auto 24px;line-height:1.6}
-.location{font-size:14px;margin-top:18px;color:var(--muted)}
-footer{border-top:1px solid var(--line);padding:28px 0 40px;text-align:center;color:var(--muted);font-size:13px}
-
-/* Age gate */
-.age-gate{
-  position:fixed;inset:0;z-index:999999;
-  display:flex;align-items:center;justify-content:center;
-  padding:18px;background:rgba(17,17,17,.84);
-  backdrop-filter:blur(8px);
-}
-.age-dialog{
-  width:min(560px,100%);background:white;border-radius:24px;
-  padding:28px;text-align:center;box-shadow:0 28px 90px rgba(0,0,0,.42);
-  border:1px solid #ddd;
-}
-.age-dialog img{
-  width:150px;height:150px;object-fit:cover;border-radius:50%;
-  border:3px solid var(--gold);margin-bottom:12px
-}
-.age-dialog h2{font-size:36px;margin:6px 0 8px}
-.age-dialog p{color:#555;line-height:1.5;margin:0 auto 22px}
-.age-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.age-actions button{
-  min-height:54px;border-radius:12px;font-size:17px;font-weight:850;cursor:pointer
-}
-.yes{background:var(--ink);color:white;border:1px solid var(--ink)}
-.no{background:white;color:var(--ink);border:1px solid #aaa}
-.age-note{font-size:12px!important;color:#777!important;margin-top:18px!important}
-.denied{display:none}
-.age-dialog.denied-mode .initial{display:none}
-.age-dialog.denied-mode .denied{display:block}
-.age-dialog.denied-mode .age-actions{display:none}
-
-@media(max-width:760px){
-  nav{height:74px}.brand span{font-size:13px}.brand img{width:46px;height:46px}
-  .whatsapp{padding:11px 14px;font-size:14px}
-  .hero{padding:48px 0 24px}.hero p{font-size:16px}
-  .photo-card{padding:10px;border-radius:20px}.photo-card img{border-radius:13px}
-  .price-card{grid-template-columns:1fr;padding:24px}.price-main .price{font-size:54px}
-  .deals{grid-template-columns:1fr}
-  .availability-card{padding:28px 20px}.availability-card h2{font-size:32px}
-  .age-dialog{padding:22px}.age-dialog img{width:120px;height:120px}.age-dialog h2{font-size:30px}
-}
-</style>
+<title>دموع | Modest Fashion Boutique</title>
+<meta name="description" content="دموع — modest fashion boutique. Abayas, dresses, hijabs, jilbabs and separates.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Reem+Kufi:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-<body class="age-locked">
+<body>
 
-<div id="ageGate" class="age-gate" role="dialog" aria-modal="true" aria-labelledby="ageTitle">
-  <div id="ageDialog" class="age-dialog">
-    <div class="initial">
-      <img src="big-smokers-logo.jpeg" alt="Big Smokers logo">
-      <h2 id="ageTitle">Are You 21+?</h2>
-      <p>You must be 21 years of age or older to enter Big Smokers.</p>
-      <div class="age-actions">
-        <button class="yes" onclick="enterSite()">Yes, I'm 21+</button>
-        <button class="no" onclick="denyAccess()">No, I'm under 21</button>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <span class="brand-ar">دموع</span>
+      <span class="brand-en">DOUMOU &nbsp;·&nbsp; Modest Fashion</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-actions" id="navActions">
+      <div class="search-box">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="searchInput" type="search" placeholder="Search abayas, dresses, hijabs…" aria-label="Search products">
       </div>
-      <p class="age-note">By entering, you confirm that you are 21 or older.</p>
+      <a class="cta-small" id="contactCta" href="#" target="_blank" rel="noopener">Message Us</a>
     </div>
-    <div class="denied">
-      <img src="big-smokers-logo.jpeg" alt="Big Smokers logo">
-      <h2>Access Restricted</h2>
-      <p>This website is intended only for visitors age 21 and older.</p>
-    </div>
-  </div>
-</div>
-
-<header>
-  <div class="wrap">
-    <nav>
-      <a class="brand" href="#">
-        <img src="big-smokers-logo.jpeg" alt="Big Smokers logo">
-        <span>BIG SMOKERS</span>
-      </a>
-      <a class="whatsapp" href="https://wa.me/13134426433?text=Hi%20Big%20Smokers%2C%20I%27d%20like%20to%20check%20today%27s%20CBD%20availability%20and%20flavors.">WhatsApp</a>
-    </nav>
   </div>
 </header>
 
-<main>
+<main id="top">
   <section class="hero">
     <div class="wrap">
-      <div class="kicker">21+ Only • Abilene, Texas</div>
-      <h1>15 mL CBD E-Liquid</h1>
-      <p>Our in-store selection changes frequently. View the collection below, then message us to check which flavors are available today.</p>
-      <a class="cta" href="https://wa.me/13134426433?text=Hi%20Big%20Smokers%2C%20I%27d%20like%20to%20check%20today%27s%20CBD%20availability%20and%20flavors.">Check Availability on WhatsApp</a>
-
-      <div class="photo-card">
-        <img src="cbd-products.png" alt="Big Smokers CBD e-liquid selection">
-        <div class="caption">Product selection shown for reference. Current flavors and stock may vary.</div>
+      <div class="kicker">New Collection · Modest Fashion</div>
+      <h1>Elegance, <em>covered</em> in every detail.</h1>
+      <p>Abayas, kaftans, dresses, hijabs and jilbabs — thoughtfully priced and ready to order.
+      Browse the full collection below, then message us to place an order.</p>
+      <div class="hero-stats">
+        <div><strong id="statCount">0</strong><span>Styles</span></div>
+        <div><strong id="statCats">7</strong><span>Categories</span></div>
+        <div><strong>21</strong><span>Countries Sourced</span></div>
       </div>
     </div>
   </section>
 
-  <section class="price-section">
+  <section class="catalog">
     <div class="wrap">
-      <div class="price-card">
-        <div class="price-main">
-          <div class="label">15 mL Bottle</div>
-          <div class="price">$89.99</div>
-          <p>Ask us on WhatsApp for current flavor availability before ordering.</p>
+      <div class="filter-bar">
+        <div class="tabs" id="categoryTabs">
+          <button class="tab active" data-cat="all">All</button>
         </div>
-        <div>
-          <div class="label" style="color:#d8bd82;font-weight:900;margin-bottom:12px">BUY MORE &amp; SAVE</div>
-          <div class="deals">
-            <div class="deal"><strong>$89.99</strong><span>1 bottle</span></div>
-            <div class="deal"><strong>$169.99</strong><span>2 bottles</span></div>
-            <div class="deal"><strong>$239.99</strong><span>3 bottles</span></div>
-            <div class="deal"><strong>$349.99</strong><span>5 bottles</span></div>
-          </div>
+        <div class="sort-box">
+          <label for="sortSelect">Sort</label>
+          <select id="sortSelect">
+            <option value="featured">Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name-asc">Name: A–Z</option>
+          </select>
         </div>
+      </div>
+
+      <div class="result-line">
+        <span id="resultCount"></span>
+        <button class="clear-filters" id="clearFilters" hidden>Clear filters</button>
+      </div>
+
+      <div class="grid" id="productGrid" aria-live="polite"></div>
+
+      <div class="empty-state" id="emptyState" hidden>
+        <p>No styles match your search.</p>
+        <button class="cta-outline" id="emptyClear">Clear filters</button>
+      </div>
+
+      <div class="load-more-wrap">
+        <button class="cta-outline" id="loadMoreBtn">Load more styles</button>
       </div>
     </div>
   </section>
 
-  <section class="availability">
-    <div class="wrap">
-      <div class="availability-card">
-        <h2>Check Today's Availability</h2>
-        <p>Flavors can change throughout the day because of in-store sales. Message Big Smokers on WhatsApp and we’ll confirm what is currently available.</p>
-        <a class="cta" href="https://wa.me/13134426433?text=Hi%20Big%20Smokers%2C%20I%27d%20like%20to%20check%20today%27s%20CBD%20availability%20and%20flavors.">Message Big Smokers</a>
-        <div class="location">1766 TX-351, Abilene, TX 79601</div>
+  <section class="about">
+    <div class="wrap about-grid">
+      <div>
+        <div class="kicker">About دموع</div>
+        <h2>Modest style, made accessible.</h2>
+        <p>دموع curates modest fashion — abayas, jilbabs, hijabs and everyday dresses — in
+        premium fabrics and a wide range of colors and sizes. Every style listed is available
+        to order; message us with the SKU and we'll confirm color, size and delivery time.</p>
+      </div>
+      <div class="how-to">
+        <div class="step"><span>1</span><div><strong>Browse</strong><p>Filter by category or search a style, color or SKU.</p></div></div>
+        <div class="step"><span>2</span><div><strong>Message us</strong><p>Tap "Order this style" with your size and color choice.</p></div></div>
+        <div class="step"><span>3</span><div><strong>We confirm</strong><p>We confirm availability, price and delivery, then ship.</p></div></div>
       </div>
     </div>
   </section>
 </main>
 
-<footer>
-  <div class="wrap">© 2026 Big Smokers • 21+ only • Availability subject to change.</div>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <span class="brand-ar small">دموع</span>
+      <p>Modest fashion boutique. Prices shown are per single piece and include our standard
+      markup; shipping is calculated separately at checkout.</p>
+    </div>
+    <div>
+      <strong>Contact</strong>
+      <a id="footerWhatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+      <a id="footerInstagram" href="#" target="_blank" rel="noopener">Instagram</a>
+      <a id="footerEmail" href="#">Email</a>
+    </div>
+    <div>
+      <strong>Shop</strong>
+      <a href="#categoryTabs">All Categories</a>
+      <a href="#top">Back to Top</a>
+    </div>
+  </div>
+  <div class="wrap legal">© <span id="year"></span> دموع (Doumou). Prices and availability subject to change.</div>
 </footer>
 
-<script>
-function enterSite(){
-  document.getElementById("ageGate").style.display="none";
-  document.body.classList.remove("age-locked");
-}
-function denyAccess(){
-  document.getElementById("ageDialog").classList.add("denied-mode");
-}
-</script>
+<div class="product-modal" id="productModal" role="dialog" aria-modal="true" hidden>
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="modal-panel">
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <div class="modal-swatch" id="modalSwatch"></div>
+    <div class="modal-body">
+      <div class="modal-cat" id="modalCat"></div>
+      <h3 id="modalName"></h3>
+      <div class="modal-price" id="modalPrice"></div>
+      <dl class="modal-facts">
+        <div><dt>SKU</dt><dd id="modalSku"></dd></div>
+        <div><dt>Material</dt><dd id="modalMaterial"></dd></div>
+        <div><dt>Sizes</dt><dd id="modalSizes"></dd></div>
+        <div><dt>Colors</dt><dd id="modalColors"></dd></div>
+      </dl>
+      <a class="cta" id="modalOrder" href="#" target="_blank" rel="noopener">Order this style</a>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
